@@ -8,7 +8,3 @@
 **`Frameworks`**: React, Angular, Bootstrap <br>
 **`Technologies`**: Git, Unix, Linux, Unity, REST APIs, AWS Lambda <br>
 **`Tools`**: GitHub, Vim, LaTeX, Microsoft Office
-
----
-
-[**Linkedin**](https://www.linkedin.com/in/brooke-mattos/) &nbsp;&nbsp; | &nbsp;&nbsp; [**Email**](mailto:brmattosbus@gmail.com)
