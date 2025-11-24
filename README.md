@@ -4,7 +4,7 @@
 
 ## Technical Skills
 
-**`Languages`**: Bash, Python, JavaScript, TypeScript, Java, C\#, C, C++, HTML, CSS, SQL <br>
-**`Frameworks`**: React, Angular, Bootstrap <br>
-**`Technologies`**: Git, Unix, Linux, Unity, REST APIs, AWS Lambda <br>
-**`Tools`**: GitHub, Vim, LaTeX, Microsoft Office
+**`Languages`**: Python, JavaScript, TypeScript, Java, C, C++, C#, HTML/CSS, SQL, Bash <br>
+**`Frameworks`**: React, Angular, Next, Node, Express, Jest <br>
+**`Technologies`**: Git, Unix, Linux, Vim, Unity, REST, APIs, AWS, Postgres, Firebase, Docker, DynamoDB <br>
+**`Tools`**: GitLab, Jira, Figma, Confluence, Postman, Swagger, LaTeX, Excel, Agile/Scrum
