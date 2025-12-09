@@ -7,7 +7,7 @@ on:
       - 'light_mode.svg'
       - 'cache/**'
   schedule:
-    - cron: "0 8 * * *"
+    - cron: "0 8 * * *"  # 12 am PST
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,4 +40,4 @@ jobs:
           git config --global user.email "github-actions-bot@brmattos.github.io"
           git config --global user.name "brmattos/GitHub-Actions-Bot"
           git commit -m "trigger update README" -a || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
