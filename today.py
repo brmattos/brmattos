@@ -21,7 +21,7 @@ def daily_readme(birthday):
     e.g. 'XX years, XX months, XX days'
     """
     diff = relativedelta.relativedelta(datetime.datetime.today(), birthday)
-    return '{} {}, {} {}, {} {}{}'.format(
+    return '{:02d} {}, {:02d} {}, {:02d} {}{}'.format(
         diff.years, 'year' + format_plural(diff.years), 
         diff.months, 'month' + format_plural(diff.months), 
         diff.days, 'day' + format_plural(diff.days),
@@ -439,33 +439,58 @@ def formatter(query_type, difference, funct_return=False, whitespace=0):
 
 if __name__ == '__main__':
     """
-    Brooke Mattos (brmattos), 2022-2025
+    Brooke Mattos (brmattos), 2023-2025
     """
     print('Calculation times:')
-    # define global variable for owner ID and calculate user's creation date
-    # e.g {'id': 'MDQ6VXNlcjU3MzMxMTM0'} and 2019-11-03T21:15:07Z for username 'brmattos'
+    # User data and account creation date
     user_data, user_time = perf_counter(user_getter, USER_NAME)
     OWNER_ID, acc_date = user_data
     formatter('account data', user_time)
+    print(f"Account ID: {OWNER_ID}, Created at: {acc_date}")
+
+    # Birthday / uptime
     age_data, age_time = perf_counter(daily_readme, datetime.datetime(2004, 3, 21))
     formatter('age calculation', age_time)
+    print(f"Birthday / Age: {age_data}")
+
+    # Lines of code
     total_loc, loc_time = perf_counter(loc_query, ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'], 7)
     formatter('LOC (cached)', loc_time) if total_loc[-1] else formatter('LOC (no cache)', loc_time)
+    print(f"Lines of Code: {total_loc[2]:,} (Added: {total_loc[0]:,}, Deleted: {total_loc[1]:,})")
+
+    # Commits
     commit_data, commit_time = perf_counter(commit_counter, 7)
+    print(f"Total Commits: {commit_data:,}")
+    
+    # Stars
     star_data, star_time = perf_counter(graph_repos_stars, 'stars', ['OWNER'])
+    print(f"Stars: {star_data:,}")
+
+    # Repositories
     repo_data, repo_time = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
+    print(f"Repositories: {repo_data:,}")
+
+    # Contributions
     contrib_data, contrib_time = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
+    print(f"Contributed Repos: {contrib_data:,}")
+
+    # Followers
     follower_data, follower_time = perf_counter(follower_getter, USER_NAME)
+    print(f"Followers: {follower_data:,}")
 
-    for index in range(len(total_loc)-1): total_loc[index] = '{:,}'.format(total_loc[index]) # format added, deleted, and total LOC
+    # Format LOC for SVG
+    for index in range(len(total_loc)-1):
+        total_loc[index] = '{:,}'.format(total_loc[index])
 
+    # Update SVGs
     svg_overwrite('dark_mode.svg', age_data, commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1])
     svg_overwrite('light_mode.svg', age_data, commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1])
 
-    # move cursor to override 'Calculation times:' with 'Total function time:' and the total function time, then move cursor back
-    print('\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F',
-        '{:<21}'.format('Total function time:'), '{:>11}'.format('%.4f' % (user_time + age_time + loc_time + commit_time + star_time + repo_time + contrib_time)),
-        ' s \033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E', sep='')
+    # Total function time
+    total_time = user_time + age_time + loc_time + commit_time + star_time + repo_time + contrib_time + follower_time
+    print(f"Total function time: {total_time:.4f} s")
 
-    print('Total GitHub GraphQL API calls:', '{:>3}'.format(sum(QUERY_COUNT.values())))
-    for funct_name, count in QUERY_COUNT.items(): print('{:<28}'.format('   ' + funct_name + ':'), '{:>6}'.format(count))
+    # API call counts
+    print('Total GitHub GraphQL API calls:', sum(QUERY_COUNT.values()))
+    for funct_name, count in QUERY_COUNT.items():
+      print(f"   {funct_name:<25}: {count:>3}")
