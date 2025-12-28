@@ -8,8 +8,7 @@
 ---
 
 Hi There! 👋 <br>
-My name is Brooke, I'm a 4th year CS student at UC Santa Cruz, building things that (hopefully) make life a little smoother. <br>
-I write code, break it, fix it, and sometimes make it play guitar too. 🚀
+My name is Brooke, I'm a 4th year Computer Science student at UC Santa Cruz, building things that (hopefully) make life a little smoother. 🚀
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=.ENV&logoColor=navy)](https://www.linkedin.com/in/brooke-mattos/)
 [![Gmail](https://img.shields.io/badge/brmattosbus@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=darkred)](mailto:brmattosbus@gmail.com)
