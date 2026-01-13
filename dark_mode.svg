@@ -46,7 +46,7 @@ text, tspan {white-space: pre;}
 <tspan x="410" y="30">brooke@mattos</tspan> -——————————————————————————————————————————-
 <tspan x="410" y="50" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ............................. </tspan><tspan class="value">Mac OS, Windows, Linux</tspan>
 <tspan x="410" y="70" class="cc">. </tspan><tspan class="key">Kernel</tspan>:<tspan class="cc"> ............................ </tspan><tspan class="value">Fullstack Developer</tspan>
-<tspan x="410" y="90" class="cc">. </tspan><tspan class="key">Host</tspan>:<tspan class="cc"> ................................... </tspan><tspan class="value">UCSC + T4G Lab</tspan>
+<tspan x="410" y="90" class="cc">. </tspan><tspan class="key">Host</tspan>:<tspan class="cc"> ................ </tspan><tspan class="value">UCSC + T4G Lab, New Grad @ Crusoe</tspan>
 <tspan x="410" y="110" class="cc">. </tspan><tspan class="key">IDE</tspan>:<tspan class="cc"> ....................................... </tspan><tspan class="value">VSCode, VIM</tspan>
 <tspan x="410" y="130" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc" id="age_data_dots"> ................... </tspan><tspan class="value" id="age_data">21 years, 09 months, 23 days</tspan>
 <tspan x="410" y="150" class="cc">. </tspan>
